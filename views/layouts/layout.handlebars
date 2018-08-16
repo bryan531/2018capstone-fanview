@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Fan View</title>
+  <link rel="stylesheet" href="/css/style.css" />
+  <link rel="stylesheet" href="/css/bootstrap.css" />
+  <link rel="stylesheet" href="/css/fa-svg-with-js.css" />
+  <script type="text/javascript" src="/js/fontawesome-all.js" defer></script>
+</head>
+<body>
+  <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom box-shadow">
+    <a href="/" class="my-0 mr-md-auto"><img src="/images/fanviewlogo_sm.png" width="200"></a>
+    <nav class="my-2 my-md-0 mr-md-3">
+      <div class="dropdown">
+        <a class="p-2 text-dark dropdown-toggle" href="#" id="stadiumDropdown" data-toggle="dropdown">Stadiums</a>
+        <ul class="dropdown-menu dropdown-menu-right" role="menu">
+          <li><a href="/stadiums/glp" class="p-2 text-dark dropdown-item">Global Life Park</a></li>
+          <li><a href="/stadiums/mmp" class="p-2 text-dark dropdown-item">Minute Maid Park</a></li>
+        </ul>
+        {{#if user}}
+          <a class="p-2 text-dark" href="/users/account">Account</a>
+          <a class="p-2 text-dark" href="/users/logout">Logout</a>
+        {{else}}
+          <a class="p-2 text-dark" href="/users/login">Sign In</a>
+          <a class="btn btn-outline-primary" href="/users/register">Sign up</a>
+        {{/if}}
+      </div>
+    </nav>
+  </div>
+
+
+
+    <div class="container py-5 pt-md-5 pb-md-4 mx-auto" style="padding-left:10rem !important;padding-right:10rem !important">
+      {{#if success_msg}}
+        <div class="alert alert-success">{{success_msg}}</div>
+      {{/if}}
+      {{#if error_msg}}
+        <div class="alert alert-danger">{{error_msg}}</div>
+      {{/if}}
+      {{#if error}}
+        <div class="alert alert-danger">{{error}}</div>
+      {{/if}}
+      {{{body}}}
+    </div>
+
+    <div class="container">
+      <footer class="pt-4 my-md-5 pt-md-5 border-top">
+        <div class="row">
+          <div class="col-12 col-md">
+            <img class="mb-2" src="/images/logo.png" alt="Fan View Logo" width="48" height="48">
+            <small class="d-block mb-3 text-muted">&copy; 2017-2018</small>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+
+
+
+  <script src="/js/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+  <script src="/js/bootstrap.min.js"></script>
+
+</body>
+</html>

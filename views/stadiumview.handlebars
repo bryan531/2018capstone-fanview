@@ -1,0 +1,49 @@
+<div class ="container dropleft" id="sectionList">
+  <button class="dropdown-toggle btn btn-primary btn-dark btn-lg"
+  data-toggle="dropdown">{{stadiumName}}</button>
+
+
+    <ul class="dropdown-menu dropdown-menu-right" id="myUL">
+      <div class="input-group">
+        <input type="text" method="get" action="/stadiums{{parent}}"
+        class="form-control py-2 border-right-0 border" onkeyup="filterList()"
+        id="myInput" placeholder="Search">
+        <span class="input-group-append">
+          <button class="btn btn-outline-secondary" type="submit">
+            <i class="fa fa-search"></i>
+          </button>
+        </span>
+      </div>
+      {{#each sections}}
+      <li><a href={{sectionURL}} class="dropdown-item">{{sectionNumber}}</a></li>
+      {{/each}}
+    </ul>
+  </div>
+
+
+<div class="container">
+  <img src={{stadiumPath}} alt="Stadium Layout" width="900px">
+</div>
+
+<script>
+
+
+function filterList(){
+    var input, filter, ul, li, a, i;
+    input = document.getElementById('myInput');
+    filter = input.value.toUpperCase();
+    ul = document.getElementById("myUL");
+    li = ul.getElementsByTagName('li');
+
+    // Loop through all list items, and hide those who don't match the search query
+    for (i = 0; i < li.length; i++) {
+        a = li[i].getElementsByTagName("a")[0];
+        if (a.innerHTML.toUpperCase().indexOf(filter) > -1) {
+            li[i].style.display = "";
+        } else {
+            li[i].style.display = "none";
+        }
+    }
+}
+
+</script>
